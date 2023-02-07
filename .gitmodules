@@ -1,0 +1,3 @@
+[submodule "nexar-first-supply-query"]
+	path = nexar-first-supply-query
+	url = git@github.com:NexarDeveloper/nexar-first-supply-query.git
