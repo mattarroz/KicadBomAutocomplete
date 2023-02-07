@@ -114,11 +114,10 @@ if __name__ == '__main__':
             parts = []
             for it in results.get("supSearch", {}).get("results", {}):
                 parts.append([it['part']['manufacturer']['name'], it['part']['mpn'],
-                               it['part']['medianPrice1000']['price'] if it['part']['medianPrice1000'] else None])
-                # ,
-                # it['part']['sellers']['company']['name'] if it['part']['sellers'] else None,
-                # it['part']['sellers']['company']['homepageUrl'] if it['part']['sellers'] else None,
-                # it['part']['sellers']['offers']['name'] if it['part']['sellers'] else None
+                              it['part']['medianPrice1000']['price'] if it['part']['medianPrice1000'] else None,
+                              it['part']['sellers'][0]['company']['name'] if it['part']['sellers'] else None,
+                              it['part']['sellers'][0]['company']['homepageUrl'] if it['part']['sellers'] else None,
+                              it['part']['sellers'][0]['offers'][0]['clickUrl'] if it['part']['sellers'] else None])
 
             win = ComponentChooserDialog.ComboBoxWindow(parts)
             win.connect("destroy", Gtk.main_quit)
