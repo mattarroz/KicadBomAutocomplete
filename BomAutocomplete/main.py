@@ -1,6 +1,6 @@
 import os, sys
 import kicad_netlist_reader
-import ComponentChooserDialog
+import ComponentChooserDialogWindow
 import FileChooserDialog
 import re
 
@@ -119,10 +119,8 @@ if __name__ == '__main__':
                               it['part']['sellers'][0]['company']['homepageUrl'] if it['part']['sellers'] else None,
                               it['part']['sellers'][0]['offers'][0]['clickUrl'] if it['part']['sellers'] else None])
 
-            win = ComponentChooserDialog.ComboBoxWindow(parts)
-            win.connect("destroy", Gtk.main_quit)
-            win.show_all()
-            Gtk.main()
+            ComponentChooserDialog.CompontentChooserDialog(parts)
+
 
         else:
             print('Sorry, no parts found')
